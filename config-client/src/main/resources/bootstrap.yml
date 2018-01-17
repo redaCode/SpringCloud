@@ -3,10 +3,10 @@ spring:
     name: config-client
   cloud:
     config:
-      label: master
-      profile: dev
       discovery:
         enabled: true
         service-id: config-server
+      label: master
+      profile: dev
 server:
   port: 8881

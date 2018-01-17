@@ -6,7 +6,5 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
-      label: master
-      profile: dev
 server:
   port: 8881

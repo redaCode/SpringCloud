@@ -1,0 +1,9 @@
+server:
+  port: 8354
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: reda
+    password: honggui5

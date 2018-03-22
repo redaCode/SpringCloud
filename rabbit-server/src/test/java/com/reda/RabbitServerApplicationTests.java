@@ -11,12 +11,21 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(classes = RabbitServerApplication.class)
 public class RabbitServerApplicationTests {
 
-	@Autowired
-	private Sender sender;
+//	@Autowired
+//	private Sender sender;
 
+	@Autowired
+	private DirectMsgSender directSender;
+
+	@Autowired
+	private TopicLogSender topicLogSender;
 
 	@Test
 	public void send() {
-		sender.send();
+//		sender.send();
+		//direct
+//		directSender.send();
+
+		topicLogSender.send();
 	}
 }

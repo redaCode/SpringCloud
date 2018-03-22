@@ -7,10 +7,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Sender {
     @Autowired
-    private AmqpTemplate mqTemplate;
+    private AmqpTemplate amqpTemplate;
 
     public void send() {
         String msg = "hello world";
-        mqTemplate.convertAndSend("im_mq",msg);
+        //直接发送消息到队列
+        amqpTemplate.convertAndSend("im_mq",msg);
+
     }
 }

@@ -1,3 +1,6 @@
+spring:
+  profiles: node1
+
 server:
   port: 8761
 
@@ -10,4 +13,23 @@ eureka:
     #此客户端是否获取eureka服务器注册表上的注册信息
     fetch-registry: false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://127.0.0.1:8760/eureka/
+
+---
+
+spring:
+  profiles: node2
+
+server:
+  port: 8760
+
+eureka:
+  instance:
+    hostname: eureka-server
+  client:
+    #是否注册自己已供其他服务发现
+    register-with-eureka: false
+    #此客户端是否获取eureka服务器注册表上的注册信息
+    fetch-registry: false
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/

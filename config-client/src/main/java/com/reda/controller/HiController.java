@@ -10,7 +10,7 @@ public class HiController {
     @Value("${label}")
     String label;
 
-    @RequestMapping(value = "hi")
+    @RequestMapping(value = "/hi")
     public String hi() {
         return label;
     }

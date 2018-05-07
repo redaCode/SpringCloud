@@ -13,8 +13,8 @@ spring:
 #        git:
 #          uri: https://github.com/redaCode/SpringCloudConfig/
 #          search-paths: reda
-#          username: richie.shg@aliyun.com
-#          password: honggui5
+#          username: xxx
+#          password: xxx
 #      label: master
 server:
   port: 8888

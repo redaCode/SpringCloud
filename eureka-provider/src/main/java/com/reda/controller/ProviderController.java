@@ -9,6 +9,7 @@ public class ProviderController {
 
     @RequestMapping("/{name}")
     public String sayHi(@PathVariable String name) {
+        System.out.println("get request");
         return "hi " +name;
     }
 }

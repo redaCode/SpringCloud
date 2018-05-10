@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "{name}")
 public class HiController {
 
     @Autowired
@@ -29,8 +28,4 @@ public class HiController {
         return name;
     }
 
-    @RequestMapping(value = "test2",method = RequestMethod.GET)
-    public String test2(@PathVariable String name) {
-        return name;
-    }
 }

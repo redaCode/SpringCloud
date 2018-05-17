@@ -16,6 +16,7 @@ public class RibbonService {
     LoadBalancerClient loadBalancerClient;
 
 
+    @HystrixCommand(fallbackMethod = "fallback")
     public String hiService(String name) {
         ServiceInstance si = loadBalancerClient.choose("eureka-provider");
         StringBuffer url = new StringBuffer("http://");

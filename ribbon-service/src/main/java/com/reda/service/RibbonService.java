@@ -1,10 +1,11 @@
 package com.reda.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+import com.reda.entity.Obj;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -32,6 +33,17 @@ public class RibbonService {
 
         return restTemplate.getForObject(url.toString(),String.class);
 
+    }
+
+    @Cacheable(value = "reda")
+    public String getMsg(String param) {
+        System.out.println("from db");
+        return new Obj(param).toString();
+    }
+
+    @CacheEvict(value = "reda")
+    public void delCache() {
+        System.out.println("del cache");
     }
 
     public String fallback(String name) {

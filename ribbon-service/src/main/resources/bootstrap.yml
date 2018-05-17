@@ -1,5 +1,9 @@
 server:
   port: 8764
+  redis:
+      database: 1
+      host: 127.0.0.1
+      port: 6379
 
 spring:
   application:
@@ -11,7 +15,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/,http://eureka-server:8760/eureka/
 
 #点对点直连某个生产者
 #ribbon:

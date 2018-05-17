@@ -21,4 +21,14 @@ public class RibbonController {
         return ribbonService.hiService(name);
     }
 
+    @RequestMapping(value = "/cache/{str}",method = RequestMethod.GET)
+    public String testCache(@PathVariable String str) {
+        return ribbonService.getMsg(str);
+    }
+
+    @RequestMapping(value = "/cache/del",method = RequestMethod.GET)
+    public void delCache() {
+        ribbonService.delCache();
+    }
+
 }

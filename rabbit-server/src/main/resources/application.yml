@@ -1,22 +1,30 @@
+spring:
+  profiles: usage_message_sender
+
+tutorial:
+  client:
+    duration: 10000
+
+logging:
+  level:
+    org: ERROR
+
+server:
+  port: 8353
+
+---
+spring:
+  profiles: usage_message_receiver
+
+tutorial:
+  client:
+    duration: 10000
+
+logging:
+  level:
+    org: ERROR
+
 server:
   port: 8354
 
-spring:
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: quest
-    password: quest
 
-mq:
-  config:
-    #direct
-    directExchange: log.direct
-    queue.info: log.info
-    queue.info.routing.key: log.direct.log.info
-    queue.error: log.error
-    queue.error.routing.key: log.direct.log.error
-    #topic
-    topicLogExchange: log.topic
-    topicUserExchange: user.topic
-    queue.logs: log.msg

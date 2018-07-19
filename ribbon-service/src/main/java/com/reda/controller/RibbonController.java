@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+
 @RestController
 @EnableHystrix
 public class RibbonController {
@@ -31,4 +34,10 @@ public class RibbonController {
         ribbonService.delCache();
     }
 
+    @RequestMapping(value = "/merge/{str1}/{str2}",method = RequestMethod.GET)
+    public String testMerge(@PathVariable String str1,@PathVariable String str2) throws ExecutionException, InterruptedException {
+        Future<String> result1 = ribbonService.get(str1);
+        Future<String> result2 = ribbonService.get(str2);
+        return result1.get()+"***"+ result2.get();
+    }
 }
